@@ -16,4 +16,11 @@
     <string name="inquilinos">Inquilinos</string>
     <string name="contratos">Contratos</string>
     <string name="logout">Logout</string>
+    <string name="datos_del_propietario">Datos del propietario</string>
+    <string name="nombre">Nombre</string>
+    <string name="n">n</string>
+    <string name="apellido">Apellido</string>
+    <string name="dni_n">DNI Nº</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="email">Email</string>
 </resources>

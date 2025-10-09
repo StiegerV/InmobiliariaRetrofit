@@ -10,10 +10,13 @@ import modelos.PropietarioModel;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public class ApiClient {
     private static  String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/";
@@ -39,9 +42,10 @@ public class ApiClient {
         Call<String> loginForm(@Field("Usuario") String usuario, @Field("Clave") String clave);
 
         @GET("api/Propietarios")
-        Call<PropietarioModel> getPropietario();
+        Call<PropietarioModel> getPropietario(@Header("Authorization") String token);
 
-
+        @PUT("api/Propietarios/actualizar")
+        Call<PropietarioModel> actualizarProp(@Header("Authorization") String token, @Body PropietarioModel p);
 
 
     }
@@ -57,9 +61,6 @@ public class ApiClient {
         editor.apply();
 
     }
-
-
-
     public static String leerToken(Context context) {
 
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);

@@ -82,35 +82,6 @@ public class LoginViewModel extends AndroidViewModel {
               Log.d("token",throwable.getMessage());
           }
       });
-
-        if ( email.equals("tuqi") && password.equals("123")) {
-
-            UserModel usuario = new UserModel();
-
-            usuario.setEmail(email);
-
-            usuario.setPassword(password);
-
-            usuario.setNombre("tuqi");
-
-            //usuario.setFoto(R.drawable.ic_menu_camera);
-
-
-
-            Intent intent = new Intent(getApplication(), MainActivity.class);
-
-            intent.putExtra("User", usuario);
-
-            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-
-            getApplication().startActivity(intent);
-
-        }else{
-            mutableError.setValue("Usuario o contraseña incorrecto");
-
-            return;
-        }
-
     }
 
 
