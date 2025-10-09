@@ -8,18 +8,37 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.prueba.inmobiliariaretrofit.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/Inicio"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_perfil"
         android:name="com.prueba.inmobiliariaretrofit.ui.perfil.PerfilFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/perfil"
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_inmuebles"
         android:name="com.prueba.inmobiliariaretrofit.ui.inmuebles.InmueblesFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/inmuebles"
         tools:layout="@layout/fragment_inmuebles" />
+
+    <fragment
+        android:id="@+id/nav_inquilinos"
+        android:name="com.prueba.inmobiliariaretrofit.ui.inquilinos.InquilinoFragment"
+        android:label="@string/inquilinos"
+        tools:layout="@layout/fragment_inquilino" />
+
+    <fragment
+        android:id="@+id/nav_contratos"
+        android:name="com.prueba.inmobiliariaretrofit.ui.contratos.ContratosFragment"
+        android:label="@string/contratos"
+        tools:layout="@layout/fragment_contratos" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.prueba.inmobiliariaretrofit.ui.logout.LogoutFragment"
+        android:label="@string/logout"
+        tools:layout="@layout/fragment_logout" />
+
 </navigation>

@@ -24,8 +24,6 @@ public class InmueblesFragment extends Fragment {
         binding = FragmentInmueblesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        inmueblesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
