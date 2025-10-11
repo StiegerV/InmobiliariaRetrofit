@@ -30,9 +30,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String mail=binding.etEmail.getText().toString();
                 String pass=binding.etPassword.getText().toString();
-                viewModel.validarUsuario("luisprofessor@gmail.com","DEEKQW");
+                viewModel.validarUsuario(mail,pass);
             }
         });
+
+        binding.etEmail.setText("luisprofessor@gmail.com");
+        binding.etPassword.setText("DEEKQW");
 
         viewModel.getMutableError().observe(this, new Observer<String>() {
             @Override

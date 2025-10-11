@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="85dp"
-        android:layout_height="22dp"
-        android:text="inicio"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <fragment
+        android:id="@+id/map"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absolutely="16dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
