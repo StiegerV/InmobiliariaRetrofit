@@ -63,4 +63,18 @@ public class PropietarioModel implements Serializable {
     public void setClave(String clave) {
         this.clave = clave;
     }
+
+
+    @Override
+    public String toString() {
+        return "PropietarioModel{" +
+                "idPropietario=" + idPropietario +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni='" + dni + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
+                ", clave='" + clave + '\'' +
+                '}';
+    }
 }
