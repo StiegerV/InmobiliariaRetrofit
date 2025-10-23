@@ -23,4 +23,16 @@
     <string name="dni_n">DNI Nº</string>
     <string name="tel_fono">Teléfono</string>
     <string name="email">Email</string>
+    <string name="valor">Valor</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitud">Latitud</string>
+    <string name="tipo">Tipo</string>
+    <string name="uso">Uso</string>
+    <string name="direccion">Direccion</string>
+    <string name="superficie">Superficie</string>
+    <string name="ambientes">Ambientes</string>
+    <string name="editar">editar</string>
+    <string name="imagen_del_inmueble">Imagen del inmueble</string>
+    <string name="nuevo" />
+    <string name="_34_1234">-34.1234</string>
 </resources>

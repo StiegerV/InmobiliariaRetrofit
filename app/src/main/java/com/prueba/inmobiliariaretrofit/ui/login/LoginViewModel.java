@@ -3,6 +3,7 @@ package com.prueba.inmobiliariaretrofit.ui.login;
 import android.app.Application;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -61,7 +62,7 @@ public class LoginViewModel extends AndroidViewModel {
           public void onResponse(Call<String> call, Response<String> response) {
               if (response.isSuccessful()){
                     String token=response.body();
-
+                  Log.d("token",token);
                   ApiClient.guardarToken(getApplication(),token);
 
                   Intent intent = new Intent(getApplication(), MainActivity.class);
@@ -73,13 +74,14 @@ public class LoginViewModel extends AndroidViewModel {
                   getApplication().startActivity(intent);
 
               }else{
-                  Log.d("token",response.code()+"");
+                  Toast.makeText(getApplication(),"Error"+response.code(),Toast.LENGTH_LONG).show();
               }
           }
 
           @Override
           public void onFailure(Call<String> call, Throwable throwable) {
-              Log.d("token",throwable.getMessage());
+              Toast.makeText(getApplication(),"Error"+throwable.getMessage(),Toast.LENGTH_LONG).show();
+
           }
       });
     }

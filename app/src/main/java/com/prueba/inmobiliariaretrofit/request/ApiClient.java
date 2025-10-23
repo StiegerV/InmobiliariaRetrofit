@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import modelos.InmuebleModel;
 import modelos.PropietarioModel;
+
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,8 +17,12 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
+
+import java.util.List;
 
 public class ApiClient {
     private static  String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/";
@@ -36,7 +42,6 @@ public class ApiClient {
 
 
     public interface InmoService{
-
         @FormUrlEncoded
         @POST("api/Propietarios/login")
         Call<String> loginForm(@Field("Usuario") String usuario, @Field("Clave") String clave);
@@ -46,6 +51,22 @@ public class ApiClient {
 
         @PUT("api/Propietarios/actualizar")
         Call<PropietarioModel> actualizarProp(@Header("Authorization") String token, @Body PropietarioModel p);
+
+        @GET("api/Inmuebles")
+        Call<List<InmuebleModel>> getListaInmuebles(@Header("Authorization") String token);
+
+        @PUT("api/Inmuebles/actualizar")
+        Call<InmuebleModel> actualizarInmueble(@Header("Authorization") String token, @Body InmuebleModel i);
+
+        @Multipart
+        @POST("api/Inmuebles/cargar")
+        Call<InmuebleModel> cargarInmueble(
+                @Header("Authorization") String token,
+                @Part okhttp3.MultipartBody.Part imagen,
+                @Part("inmueble") okhttp3.RequestBody inmuebleJson
+        );
+
+
 
 
     }
