@@ -34,15 +34,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        binding.btResetear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mail=binding.etEmail.getText().toString();
+                viewModel.resetearContraseña(mail);
+            }
+        });
         binding.etEmail.setText("luisprofessor@gmail.com");
         binding.etPassword.setText("DEEKQW");
 
-        viewModel.getMutableError().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                binding.tvError.setText(s);
-            }
-        });
+
     }
 
 

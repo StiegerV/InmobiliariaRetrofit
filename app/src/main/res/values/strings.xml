@@ -35,4 +35,5 @@
     <string name="imagen_del_inmueble">Imagen del inmueble</string>
     <string name="nuevo" />
     <string name="_34_1234">-34.1234</string>
+    <string name="resetear_contrase_a">Resetear contraseña</string>
 </resources>

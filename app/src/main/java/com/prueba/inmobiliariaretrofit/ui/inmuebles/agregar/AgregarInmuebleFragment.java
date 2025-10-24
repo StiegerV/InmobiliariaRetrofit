@@ -59,7 +59,6 @@ public class AgregarInmuebleFragment extends Fragment {
                     }
                 });
 
-
         //para abrir galeria
         binding.btnCargarImg.setOnClickListener(v -> imagePickerLauncher.launch("image/*"));
 
@@ -67,19 +66,7 @@ public class AgregarInmuebleFragment extends Fragment {
         binding.btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InmuebleModel nuevo = new InmuebleModel();
-                nuevo.setDireccion(binding.etDireccion.getText().toString());
-                nuevo.setTipo(binding.etTipo.getText().toString());
-                nuevo.setUso(binding.etUso.getText().toString());
-
-
-                try {
-                    nuevo.setValor(Double.parseDouble(binding.etValor.getText().toString()));
-                    nuevo.setSuperficie(Integer.parseInt(binding.etSuperficie.getText().toString()));
-                } catch (NumberFormatException e) {
-                    Toast.makeText(requireContext(), "Ingrese números válidos", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                InmuebleModel nuevo = mViewModel.validarInmueble(binding);
 
                 mViewModel.guardarInmueble(nuevo,imagenUri);
             }

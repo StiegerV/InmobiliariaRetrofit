@@ -50,6 +50,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
         InmuebleModel inmActual = listaInmuebles.get(position);
         holder.direccion.setText(inmActual.getDireccion());
         holder.precio.setText(inmActual.getValor()+"");
+        holder.ambientes.setText("ambientes:"+inmActual.getAmbientes());
         Glide.with(context)
                 .load("https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/" + inmActual.getImagen())
                 .placeholder(null)
@@ -72,13 +73,14 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
 
     public class ViewHolderInmueble extends RecyclerView.ViewHolder{
 
-        private TextView direccion,precio;
+        private TextView direccion,precio,ambientes;
         private ImageView portada;
         public ViewHolderInmueble(@NonNull View itemView) {
             super(itemView);
             direccion = itemView.findViewById(R.id.tvDireccion);
             precio = itemView.findViewById(R.id.tvPrecio);
             portada= itemView.findViewById(R.id.imgInmueble);
+            ambientes=itemView.findViewById(R.id.tvAmbientes);
         }
 
 

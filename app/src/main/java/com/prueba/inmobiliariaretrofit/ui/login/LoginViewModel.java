@@ -87,4 +87,31 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
 
+    public void resetearContraseña(String email){
+        if (email.isEmpty()) {
+            Toast.makeText(getApplication(),"Por favor ingrese su mail para resetear la contraseña",Toast.LENGTH_LONG).show();
+            return;
+        }
+        ApiClient.InmoService llamadas= ApiClient.getInmoService();
+        Call<String> respuesta=llamadas.resetearContrasenia(email);
+
+        respuesta.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(getApplication(),"se ah enviado un mail",Toast.LENGTH_LONG).show();
+                }else{
+                Toast.makeText(getApplication(),response.message(),Toast.LENGTH_LONG).show();}
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                Toast.makeText(getApplication(),throwable.toString(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+    }
+
 }

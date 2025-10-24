@@ -93,18 +93,18 @@ public class utils {
 
     public static String obtenerPropietarioId(String token) {
         try {
-            // 1️⃣ Separar las partes del JWT
+
             String[] partes = token.split("\\.");
             if (partes.length != 3) return null;
 
-            // 2️⃣ Decodificar el payload (parte[1])
+
             byte[] decodedBytes = Base64.decode(partes[1], Base64.URL_SAFE);
             String payload = new String(decodedBytes);
 
-            // 3️⃣ Convertir a JSONObject
+
             JSONObject json = new JSONObject(payload);
 
-            // 4️⃣ Obtener el ID
+
             if (json.has("id")) {
                 return json.getString("id");
             } else if (json.has("sub")) {

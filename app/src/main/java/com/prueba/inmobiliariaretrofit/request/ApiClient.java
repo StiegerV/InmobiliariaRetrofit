@@ -67,6 +67,11 @@ public class ApiClient {
         );
 
 
+        @FormUrlEncoded
+        @POST("api/Propietarios/email")
+        Call<String> resetearContrasenia(@Field("email") String email);
+
+
 
 
     }

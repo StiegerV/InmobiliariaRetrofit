@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.google.gson.Gson;
 import com.prueba.inmobiliariaretrofit.R;
+import com.prueba.inmobiliariaretrofit.databinding.FragmentAgregarInmuebleBinding;
 import com.prueba.inmobiliariaretrofit.request.ApiClient;
 
 import java.io.File;
@@ -46,7 +47,7 @@ public class AgregarInmuebleViewModel extends AndroidViewModel {
 
 
         boolean valido = true;
-
+        if (inmueble==null) valido=false;
         if (inmueble.getDireccion() == null || inmueble.getDireccion().isEmpty()) valido = false;
         if (inmueble.getTipo() == null || inmueble.getTipo().isEmpty()) valido = false;
         if (inmueble.getUso() == null || inmueble.getUso().isEmpty()) valido = false;
@@ -102,4 +103,23 @@ public class AgregarInmuebleViewModel extends AndroidViewModel {
         });
     }
 
+    public InmuebleModel validarInmueble(FragmentAgregarInmuebleBinding binding){
+        InmuebleModel nuevo = new InmuebleModel();
+        nuevo.setDireccion(binding.etDireccion.getText().toString());
+        nuevo.setTipo(binding.etTipo.getText().toString());
+        nuevo.setUso(binding.etUso.getText().toString());
+
+
+
+        try {
+            nuevo.setAmbientes(Integer.parseInt(binding.etAmbientes.getText().toString()));
+            nuevo.setValor(Double.parseDouble(binding.etValor.getText().toString()));
+            nuevo.setSuperficie(Integer.parseInt(binding.etSuperficie.getText().toString()));
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplication(), "Ingrese números válidos", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        return nuevo;
+    }
 }
