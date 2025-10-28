@@ -33,6 +33,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
     public InmuebleAdapter(List<InmuebleModel> listaInmuebles, Context context, LayoutInflater inflater) {
 
         this.listaInmuebles = listaInmuebles;
+        this.listaInmuebles.sort((o1, o2) -> o2.getIdInmueble() - o1.getIdInmueble());
         this.context = context;
         this.inflater = inflater;
 
