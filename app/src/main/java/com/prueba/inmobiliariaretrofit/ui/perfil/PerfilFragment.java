@@ -10,8 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.prueba.inmobiliariaretrofit.R;
 import com.prueba.inmobiliariaretrofit.databinding.FragmentPerfilBinding;
+import com.prueba.inmobiliariaretrofit.ui.inmuebles.agregar.AgregarInmuebleFragment;
 
 import modelos.PropietarioModel;
 
@@ -54,6 +58,14 @@ public class PerfilFragment extends Fragment {
                         binding.etDni.getText().toString(),
                         binding.etTelefono.getText().toString(),
                         binding.etEmail.getText().toString());
+            }
+        });
+
+        binding.btContrasena.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = NavHostFragment.findNavController(PerfilFragment.this);
+                navController.navigate(R.id.action_nav_perfil_to_cambioPassFragment);
             }
         });
 

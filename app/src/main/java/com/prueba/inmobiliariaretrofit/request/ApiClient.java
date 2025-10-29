@@ -66,6 +66,9 @@ public class ApiClient {
                 @Part("inmueble") okhttp3.RequestBody inmuebleJson
         );
 
+        @FormUrlEncoded
+        @PUT("/api/Propietarios/changePassword")
+        Call<Void> cambiarContrasena(@Header("Authorization") String token,@Field("currentPassword")String contrasenaActual,@Field("newPassword")String contrasenaNueva);
 
         @FormUrlEncoded
         @POST("api/Propietarios/email")

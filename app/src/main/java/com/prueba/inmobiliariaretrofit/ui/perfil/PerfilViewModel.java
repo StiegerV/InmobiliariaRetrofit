@@ -44,11 +44,11 @@ public class PerfilViewModel extends AndroidViewModel {
             mEstado.setValue(true);
             mNombre.setValue("GUARDAR");
         } else {
-            // 🔹 Validar antes de continuar
+
             String error = validarCampos(nombre, apellido, dni, telefono, email);
             if (error != null) {
                 Toast.makeText(getApplication(), error, Toast.LENGTH_SHORT).show();
-                return; // Detener ejecución si hay error
+                return;
             }
 
             mEstado.setValue(false);

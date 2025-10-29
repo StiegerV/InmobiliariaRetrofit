@@ -15,7 +15,11 @@
         android:id="@+id/nav_perfil"
         android:name="com.prueba.inmobiliariaretrofit.ui.perfil.PerfilFragment"
         android:label="@string/perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_nav_perfil_to_cambioPassFragment"
+            app:destination="@id/cambioPassFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_inmuebles"
@@ -70,6 +74,15 @@
         <action
             android:id="@+id/action_nav_agregarInmueble_to_detalleInmuebleFragment"
             app:destination="@id/detalleInmuebleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cambioPassFragment"
+        android:name="com.prueba.inmobiliariaretrofit.ui.perfil.cambiarContrasena.cambioPassFragment"
+        android:label="fragment_cambio_pass"
+        tools:layout="@layout/fragment_cambio_pass" >
+        <action
+            android:id="@+id/action_cambioPassFragment_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
     </fragment>
 
 </navigation>
