@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCodigo" />
 
     <TextView
-        android:id="@+id/tvAmbientes"
+        android:id="@+id/tvMonto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -66,10 +66,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAmbientes" />
+        app:layout_constraintTop_toBottomOf="@+id/tvMonto" />
 
     <TextView
-        android:id="@+id/tvDireccion"
+        android:id="@+id/tvFechaPago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -90,10 +90,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDireccion" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaPago" />
 
     <TextView
-        android:id="@+id/tvPrecio"
+        android:id="@+id/tvDetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -114,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrecio" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetalle" />
 
     <TextView
         android:id="@+id/tvUso"

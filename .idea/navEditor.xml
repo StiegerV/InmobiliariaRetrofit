@@ -17,6 +17,15 @@
                             <option name="y" value="-75" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_cambioPassFragment_to_nav_perfil">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -27,6 +36,18 @@
                           <Point>
                             <option name="x" value="406" />
                             <option name="y" value="-61" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="detalleContratoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="285" />
+                            <option name="y" value="680" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -44,6 +65,27 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_detalleInmuebleFragment_to_nav_inmuebles">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="detalleInquilinoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="652" />
+                            <option name="y" value="280" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_detalleInquilinoFragment_to_nav_inquilinos">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -128,6 +170,15 @@
                             <option name="y" value="-55" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_nav_inquilinos_to_detalleInquilinoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -151,6 +202,15 @@
                             <option name="x" value="3" />
                             <option name="y" value="-61" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_nav_perfil_to_cambioPassFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

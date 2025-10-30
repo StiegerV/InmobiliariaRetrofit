@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import modelos.ContratoModel;
 import modelos.InmuebleModel;
+import modelos.PagoModel;
 import modelos.PropietarioModel;
 
 import retrofit2.Call;
@@ -21,6 +23,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 import java.util.List;
 
@@ -55,6 +58,20 @@ public class ApiClient {
         @GET("api/Inmuebles")
         Call<List<InmuebleModel>> getListaInmuebles(@Header("Authorization") String token);
 
+        @GET("api/Inmuebles/GetContratoVigente")
+        Call<List<InmuebleModel>> getListaInmueblesContrato(@Header("Authorization")String token);
+
+        @GET("/api/contratos/inmueble/{id}")
+        Call<ContratoModel> obtenerContratoPorInmueble(
+                @Header("Authorization") String token,
+                @Path("id") int id
+        );
+        @GET("/api/pagos/contrato/{id}")
+        Call<List<PagoModel>> obtenerPagosPorContrato(
+                @Header("Authorization") String token,
+                @Path("id") int contratoId
+        );
+
         @PUT("api/Inmuebles/actualizar")
         Call<InmuebleModel> actualizarInmueble(@Header("Authorization") String token, @Body InmuebleModel i);
 
@@ -73,9 +90,6 @@ public class ApiClient {
         @FormUrlEncoded
         @POST("api/Propietarios/email")
         Call<String> resetearContrasenia(@Field("email") String email);
-
-
-
 
     }
 

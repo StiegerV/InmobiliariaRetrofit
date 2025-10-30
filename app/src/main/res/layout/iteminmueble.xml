@@ -21,7 +21,7 @@
             android:src="@drawable/profe"/>
 
         <TextView
-            android:id="@+id/tvDireccion"
+            android:id="@+id/tvFechaPago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dirección"
@@ -30,13 +30,13 @@
             android:layout_marginTop="8dp"/>
 
         <TextView
-            android:id="@+id/tvAmbientes"
+            android:id="@+id/tvMonto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ambientes: 3" />
 
         <TextView
-            android:id="@+id/tvPrecio"
+            android:id="@+id/tvDetalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$ 100000" />

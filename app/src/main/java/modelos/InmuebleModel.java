@@ -3,13 +3,20 @@ package modelos;
 import java.io.Serializable;
 
 public class InmuebleModel implements Serializable {
-    private int idInmueble,ambientes,superficie,idPropietario;
+    private int idInmueble,ambientes,superficie,idPropietario,idContrato;
     private String direccion,uso,tipo,imagen;
     private double latitud,valor,longitud;
     private boolean disponible;
 
     private PropietarioModel propietario;
 
+    public int getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(int idContrato) {
+        this.idContrato = idContrato;
+    }
 
     public PropietarioModel getPropietario() {
         return propietario;

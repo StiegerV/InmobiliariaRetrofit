@@ -35,13 +35,21 @@
         android:id="@+id/nav_inquilinos"
         android:name="com.prueba.inmobiliariaretrofit.ui.inquilinos.InquilinoFragment"
         android:label="@string/inquilinos"
-        tools:layout="@layout/fragment_inquilino" />
+        tools:layout="@layout/fragment_inquilino" >
+        <action
+            android:id="@+id/action_nav_inquilinos_to_detalleInquilinoFragment"
+            app:destination="@id/detalleInquilinoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_contratos"
         android:name="com.prueba.inmobiliariaretrofit.ui.contratos.ContratosFragment"
         android:label="@string/contratos"
-        tools:layout="@layout/fragment_contratos" />
+        tools:layout="@layout/fragment_contratos" >
+        <action
+            android:id="@+id/action_nav_contratos_to_detalleContratoFragment"
+            app:destination="@id/detalleContratoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_logout"
@@ -57,7 +65,7 @@
         tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/detalleInmuebleFragment"
-        android:name="com.prueba.inmobiliariaretrofit.ui.detalleInmueble.DetalleInmuebleFragment"
+        android:name="com.prueba.inmobiliariaretrofit.ui.inmuebles.detalleInmueble.DetalleInmuebleFragment"
         android:label="detalle inmueble"
         tools:layout="@layout/fragment_detalle_inmueble" >
         <action
@@ -84,5 +92,24 @@
             android:id="@+id/action_cambioPassFragment_to_nav_perfil"
             app:destination="@id/nav_perfil" />
     </fragment>
+    <fragment
+        android:id="@+id/detalleInquilinoFragment"
+        android:name="com.prueba.inmobiliariaretrofit.ui.inquilinos.detalleInquilino.detalleInquilinoFragment"
+        android:label="fragment_detalle_inquilino"
+        tools:layout="@layout/fragment_detalle_inquilino" >
+        <action
+            android:id="@+id/action_detalleInquilinoFragment_to_nav_inquilinos"
+            app:destination="@id/nav_inquilinos" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleContratoFragment"
+        android:name="com.prueba.inmobiliariaretrofit.ui.contratos.detalleContrato.detalleContratoFragment"
+        android:label="fragment_detalle_contrato"
+        tools:layout="@layout/fragment_detalle_contrato" >
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_nav_contratos"
+            app:destination="@id/nav_contratos" />
+    </fragment>
+
 
 </navigation>
