@@ -15,7 +15,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tvFechaPago"
+            android:id="@+id/tvFechaPagop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha de pago"
@@ -25,7 +25,7 @@
             android:layout_marginBottom="6dp" />
 
         <TextView
-            android:id="@+id/tvMonto"
+            android:id="@+id/tvMontop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monto"
@@ -34,7 +34,7 @@
             android:layout_marginBottom="4dp" />
 
         <TextView
-            android:id="@+id/tvDetalle"
+            android:id="@+id/tvDetallep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Detalle"
@@ -43,7 +43,7 @@
             android:layout_marginBottom="4dp" />
 
         <TextView
-            android:id="@+id/tvEstado"
+            android:id="@+id/tvEstadop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Estado"

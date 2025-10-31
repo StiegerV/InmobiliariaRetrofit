@@ -3,7 +3,6 @@ package com.prueba.inmobiliariaretrofit.ui.inquilinos;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,10 +76,10 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
         private ImageView portada;
         public ViewHolderInmuebleInquilino(@NonNull View itemView) {
             super(itemView);
-            direccion = itemView.findViewById(R.id.tvFechaPago);
-            precio = itemView.findViewById(R.id.tvDetalle);
+            direccion = itemView.findViewById(R.id.tvFechaPagop);
+            precio = itemView.findViewById(R.id.tvDetallep);
             portada= itemView.findViewById(R.id.imgInmueble);
-            ambientes=itemView.findViewById(R.id.tvMonto);
+            ambientes=itemView.findViewById(R.id.tvMontop);
         }
 
         public TextView getDireccion() {

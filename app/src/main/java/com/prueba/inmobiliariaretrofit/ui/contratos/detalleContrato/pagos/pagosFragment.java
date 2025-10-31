@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import java.util.Collections;
 import java.util.List;
 
 import modelos.InmuebleModel;
+import modelos.PagoModel;
 
 public class pagosFragment extends Fragment {
 
@@ -36,17 +38,20 @@ public class pagosFragment extends Fragment {
         binding = FragmentListaPagosBinding.inflate(inflater, container, false);
         vm = new ViewModelProvider(this).get(PagosViewModel.class);
 
-        vm.getMpagos().observe(getViewLifecycleOwner(), new Observer<List<InmuebleModel>>() {
+        vm.getMpagos().observe(getViewLifecycleOwner(), new Observer<List<PagoModel>>() {
             @Override
-            public void onChanged(List<InmuebleModel> inmuebles) {
-                InmuebleAdapter adapter = new InmuebleAdapter(inmuebles,getContext(),getLayoutInflater());
+            public void onChanged(List<PagoModel> p) {
+                pagoAdapter adapter = new pagoAdapter(p,getContext(),getLayoutInflater());
                 GridLayoutManager glm=new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
-
+                Log.d("bugstatic", "onChanged: entro");
                 binding.recyvlerViewPagos.setLayoutManager(glm);
                 binding.recyvlerViewPagos.setAdapter(adapter);
             }
         });
-       // vm.cargarPagos();
+        Bundle bundle = getArguments();
+        int contratoId= bundle.getInt("contrato");
+        Log.d("bugstatic", "ID de contrato recibido: " + contratoId);
+        vm.cargarPagos(contratoId);
 
         return binding.getRoot();
     }

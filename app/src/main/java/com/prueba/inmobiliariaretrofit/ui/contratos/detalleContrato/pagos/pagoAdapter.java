@@ -1,26 +1,19 @@
 package com.prueba.inmobiliariaretrofit.ui.contratos.detalleContrato.pagos;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.prueba.inmobiliariaretrofit.R;
 
 
 import java.util.List;
 
-import modelos.InmuebleModel;
 import modelos.PagoModel;
 
 public class pagoAdapter extends RecyclerView.Adapter<pagoAdapter.ViewHolderPagos> {
@@ -44,9 +37,16 @@ public class pagoAdapter extends RecyclerView.Adapter<pagoAdapter.ViewHolderPago
     }
 
     @Override
-    public void onBindViewHolder(@NonNull com.prueba.inmobiliariaretrofit.ui.inquilinos.ContratosAdapter.ViewHolderInmuebleInquilino holder, int position) {
+    public void onBindViewHolder(@NonNull pagoAdapter.ViewHolderPagos holder, int position) {
         PagoModel pago = listaPago.get(position);
-        //holder.direccion.setText(inmActual.getDireccion());
+        holder.getFechaDePago().setText(pago.getFechaPago());
+        holder.getMonto().setText(pago.getImporte()+"");
+        holder.getDetalle().setText(pago.getDetalle());
+        if (pago.isEstado()){
+            holder.getEstado().setText("pagado");
+        }else{
+            holder.getEstado().setText("sin pagar");
+        }
 
 
 
@@ -59,12 +59,29 @@ public class pagoAdapter extends RecyclerView.Adapter<pagoAdapter.ViewHolderPago
 
     public class ViewHolderPagos extends RecyclerView.ViewHolder{
 
-        TextView FechaDePago,monto,detalle,estado;
+        TextView fechaDePago,monto,detalle,estado;
         public ViewHolderPagos(@NonNull View itemView) {
             super(itemView);
-
+            this.fechaDePago=itemView.findViewById(R.id.tvFechaPagop);
+            this.monto=itemView.findViewById(R.id.tvMontop);
+            this.detalle=itemView.findViewById(R.id.tvDetallep);
+            this.estado=itemView.findViewById(R.id.tvEstadop);
         }
 
+        public TextView getFechaDePago() {
+            return fechaDePago;
+        }
 
+        public TextView getMonto() {
+            return monto;
+        }
+
+        public TextView getDetalle() {
+            return detalle;
+        }
+
+        public TextView getEstado() {
+            return estado;
+        }
     }
 }

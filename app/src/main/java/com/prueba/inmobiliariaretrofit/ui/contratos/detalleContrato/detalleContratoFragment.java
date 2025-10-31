@@ -3,11 +3,13 @@ package com.prueba.inmobiliariaretrofit.ui.contratos.detalleContrato;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.prueba.inmobiliariaretrofit.R;
 import com.prueba.inmobiliariaretrofit.databinding.FragmentContratosBinding;
 import com.prueba.inmobiliariaretrofit.databinding.FragmentDetalleContratoBinding;
 import com.prueba.inmobiliariaretrofit.databinding.FragmentDetalleInquilinoBinding;
@@ -32,6 +35,7 @@ public class detalleContratoFragment extends Fragment {
 
     private DetalleContratoViewModel vm;
     private FragmentDetalleContratoBinding binding;
+    private Bundle bundle;
 
 
     public static detalleContratoFragment newInstance() {
@@ -54,16 +58,20 @@ public class detalleContratoFragment extends Fragment {
                 binding.tvMontoTrato.setText(c.getMontoAlquiler()+"");
                 binding.tvInquilino.setText(c.getInquilino().getNombre()+" "+c.getInquilino().getApellido());
                 binding.tvInmueble.setText(c.getInmueble().getDireccion());
+                bundle=new Bundle();
+                bundle.putInt("contrato",c.getIdContrato());
+                Log.d("bugstatic", "ID de contrato recibido en detalle: " + c.getIdContrato());
             }
         });
-        Bundle bundle = getArguments();
-        int inmuebleId= bundle.getInt("inmueble");
+        Bundle bundle2 = getArguments();
+        int inmuebleId= bundle2.getInt("inmueble");
         vm.obtenerContrato(inmuebleId);
 
         binding.btnPagos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Navigation.findNavController((Activity) getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.action_detalleContratoFragment_to_pagosFragment,bundle);
             }
         });
 

@@ -109,7 +109,33 @@
         <action
             android:id="@+id/action_detalleContratoFragment_to_nav_contratos"
             app:destination="@id/nav_contratos" />
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_pagosFragment"
+            app:destination="@id/navigation" />
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_nav_listaPagos"
+            app:destination="@id/nav_listaPagos" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_listaPagos"
+        android:name="com.prueba.inmobiliariaretrofit.ui.contratos.detalleContrato.pagos.pagosFragment"
+        android:label="pagos"
+        tools:layout="@layout/fragment_lista_pagos" />
+
+
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/pagosFragment">
+        <fragment
+            android:id="@+id/pagosFragment"
+            android:name="com.prueba.inmobiliariaretrofit.ui.contratos.detalleContrato.pagos.pagosFragment"
+            android:label="fragment_pagos"
+            tools:layout="@layout/fragment_pagos">
+            <action
+                android:id="@+id/action_pagosFragment_to_detalleContratoFragment"
+                app:destination="@id/detalleContratoFragment" />
+        </fragment>
+    </navigation>
 
 
 </navigation>

@@ -78,10 +78,10 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
         private ImageView portada;
         public ViewHolderInmueble(@NonNull View itemView) {
             super(itemView);
-            direccion = itemView.findViewById(R.id.tvFechaPago);
-            precio = itemView.findViewById(R.id.tvDetalle);
+            direccion = itemView.findViewById(R.id.tvFechaPagop);
+            precio = itemView.findViewById(R.id.tvDetallep);
             portada= itemView.findViewById(R.id.imgInmueble);
-            ambientes=itemView.findViewById(R.id.tvMonto);
+            ambientes=itemView.findViewById(R.id.tvMontop);
         }
 
 
