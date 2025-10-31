@@ -99,6 +99,11 @@ public class AgregarInmuebleViewModel extends AndroidViewModel {
 
     public void guardarInmueble(String direccion, String uso, String tipo, String precio, String ambientes, String superficie) {
         try {
+
+            byte[] imagen=transformarImagen();
+            validarCampos(direccion,uso,tipo, ambientes,superficie,precio,imagen);
+
+
             int amb = Integer.parseInt(ambientes);
             int superf = Integer.parseInt(superficie);
             double prec = Double.parseDouble(precio);
@@ -109,12 +114,7 @@ public class AgregarInmuebleViewModel extends AndroidViewModel {
             inmueble.setValor(prec);
             inmueble.setSuperficie(superf);
             inmueble.setAmbientes(amb);
-            // convertir la imagen en bits
-            byte[] imagen=transformarImagen();
-            if (imagen.length == 0){
-                Toast.makeText(getApplication(), "Ustes debe ingresar una imagen", Toast.LENGTH_SHORT).show();
-                return;
-            }
+
             String inmuebleJson = new Gson().toJson(inmueble);
             RequestBody inmuebleBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), inmuebleJson);
             RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imagen);
@@ -148,6 +148,85 @@ public class AgregarInmuebleViewModel extends AndroidViewModel {
 
 
     }
+
+
+    private boolean validarCampos(String direccion, String uso, String tipo,
+                                  String ambientes, String superficie, String precio,
+                                  byte[] imagen) {
+
+        if (direccion == null || direccion.trim().isEmpty()) {
+            Toast.makeText(getApplication(), "Debe ingresar una dirección", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (uso == null || uso.trim().isEmpty()) {
+            Toast.makeText(getApplication(), "Debe seleccionar el uso", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (tipo == null || tipo.trim().isEmpty()) {
+            Toast.makeText(getApplication(), "Debe seleccionar el tipo", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (ambientes == null || ambientes.trim().isEmpty()) {
+            Toast.makeText(getApplication(), "Debe ingresar la cantidad de ambientes", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (superficie == null || superficie.trim().isEmpty()) {
+            Toast.makeText(getApplication(), "Debe ingresar la superficie", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (precio == null || precio.trim().isEmpty()) {
+            Toast.makeText(getApplication(), "Debe ingresar el precio", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+
+        try {
+            int amb = Integer.parseInt(ambientes);
+            if (amb <= 0) {
+                Toast.makeText(getApplication(), "Los ambientes deben ser mayores a 0", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplication(), "Los ambientes deben ser un número válido", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        try {
+            int superf = Integer.parseInt(superficie);
+            if (superf <= 0) {
+                Toast.makeText(getApplication(), "La superficie debe ser mayor a 0", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplication(), "La superficie debe ser un número válido", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        try {
+            double prec = Double.parseDouble(precio);
+            if (prec <= 0) {
+                Toast.makeText(getApplication(), "El precio debe ser mayor a 0", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplication(), "El precio debe ser un número válido", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+
+        if (imagen == null || imagen.length == 0) {
+            Toast.makeText(getApplication(), "Debe ingresar una imagen", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
 
     public void limpiarNavegacion(){
         navegarADetalle=new MutableLiveData<>();
